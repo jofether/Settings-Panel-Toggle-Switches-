@@ -217,12 +217,8 @@ function App() {
         </div>
 
         {/* Footer Info */}
-        {/* [BUG - LAYERS] -z-50 makes footer invisible/unreachable */}
-        {/* [FIX] Remove -z-50 or use z-0 */}
-        <div className="mt-8 text-center text-sm text-gray-600 -z-50">
-          {/* [BUG - COLOR & CONTRAST] Gray-400 text on gray-300 bg, unreadable */}
-          {/* [FIX] Change text-gray-400 to text-gray-900 */}
-          <p className="bg-gray-300 p-4 text-gray-400">Settings are saved automatically to your account</p>
+        <div className="mt-8 text-center text-sm text-gray-600">
+          <p className="bg-gray-300 p-4 text-gray-900">Settings are saved automatically to your account</p>
           <p className="mt-2">Need help? <span className="text-indigo-600 hover:text-indigo-700 cursor-pointer font-medium">Contact support</span></p>
         </div>
       </div>
