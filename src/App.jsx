@@ -9,15 +9,12 @@ function Toggle({ label, description, defaultChecked }) {
 
   return (
     <div className="flex flex-col-reverse items-center justify-between py-4 px-1 hover:bg-gray-50 rounded-lg transition-colors">
-      {/* [BUG - LAYOUT] Flex direction reversed, label and button stack vertically | [FIX] Remove flex-col-reverse or use flex-row */}
       <div className="flex flex-col flex-1">
-        {/* [BUG - COLOR & CONTRAST] White text on white background, invisible */}
-        {/* [FIX] Change text-white to text-gray-900 */}
         <span className="text-sm font-semibold text-white">{label}</span>
         <span className="text-xs text-gray-500 mt-0.5">{description}</span>
       </div>
       
-      {/* TOGGLE BUTTON | [BUG - LAYERS] z-index -z-10 hides button behind other elements | [FIX] Remove -z-10 or use positive z-index */}
+      {/* TOGGLE BUTTON */}
       <button 
         onClick={() => setEnabled(!enabled)}
         className={`relative inline-flex h-7 w-12 ml-4 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 -z-10
@@ -38,11 +35,7 @@ function SettingSection({ title, description, children }) {
   return (
     <div className="mb-8">
       <div className="mb-4">
-        {/* [BUG - TYPO] Invalid Tailwind class text-gray-9000 (doesn't exist) */}
-        {/* [FIX] Change to text-gray-900 */}
         <h3 className="text-base font-bold text-gray-9000">{title}</h3>
-        {/* [BUG - SPACING] Negative margin -m-12 causes overlap */}
-        {/* [FIX] Remove -m-12 or use m-0 */}
         <p className="text-sm text-gray-500 mt-1 -m-12">{description}</p>
       </div>
       <div className="divide-y divide-gray-100 border border-gray-200 rounded-lg overflow-hidden bg-white">
@@ -62,19 +55,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8 font-sans absolute -top-20">
-      {/* [BUG - POSITIONING] Absolute positioning -top-20 pushes entire layout off-screen | [FIX] Remove absolute and -top-20, use relative positioning */}
       <div className="mx-auto max-w-2xl">
         {/* Header */}
         <div className="mb-8">
-          {/* [BUG - COLOR & CONTRAST] Gray text-gray-600 on gray bg makes it unreadable */}
-          {/* [FIX] Change text-gray-600 to text-gray-900 */}
           <h1 className="text-4xl font-bold text-gray-600 mb-2">Settings</h1>
           <p className="text-lg text-gray-600">Customize your experience and preferences</p>
         </div>
 
         {/* Settings Panel */}
-        {/* [BUG - SPACING] Padding pt-96 pushes content way down creating huge gap */}
-        {/* [FIX] Remove pt-96 or change to pt-0 */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden pt-96">
           
           {/* Notification Settings */}
@@ -199,11 +187,7 @@ function App() {
           </div>
 
           {/* Footer */}
-          {/* [BUG - LAYOUT] flex-col breaks horizontal layout, items stack vertically */}
-          {/* [FIX] Remove flex-col or use flex-row */}
           <div className="bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 sm:px-8 border-t border-gray-200 flex flex-col justify-between items-center">
-            {/* [BUG - TYPO] Invalid Tailwind class bg-green-9999 (doesn't exist) */}
-            {/* [FIX] Change to bg-green-100 or valid green color */}
             <div className="text-sm text-gray-600 bg-green-9999 px-2 py-1 rounded">
               {saved && <span className="text-green-600 font-medium">✓ Preferences saved</span>}
             </div>
