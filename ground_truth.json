@@ -1,5 +1,9 @@
 {
   "repository": "Settings Panel (Toggle Switches)",
+  "playwright_config": {
+    "viewport_height": 3500,
+    "note": "Extended viewport required to capture full Settings layout and footer bugs."
+  },
   "bugs": [
     {
       "comment": "Bug #1 - flexbox",
@@ -9,12 +13,12 @@
       "line_number": 11,
       "clean_code": "<div className=\"flex items-center justify-between py-4 px-1 hover:bg-gray-50 rounded-lg transition-colors\">",
       "buggy_code": "<div className=\"flex flex-col-reverse items-center justify-between py-4 px-1 hover:bg-gray-50 rounded-lg transition-colors\">",
-      "css_selector": ".flex-col-reverse",
+      "css_selector": "div.flex:has(span:has-text(\"Push Notifications\"))",
       "bounding_box": {
         "x": 89,
         "y": 521,
-        "width": 271,
-        "height": 98
+        "width": 400,
+        "height": 120
       }
     },
     {
@@ -25,7 +29,7 @@
       "line_number": 13,
       "clean_code": "<span className=\"text-sm font-semibold text-gray-900\">{label}</span>",
       "buggy_code": "<span className=\"text-sm font-semibold text-white\">{label}</span>",
-      "css_selector": ".text-white",
+      "css_selector": "span:has-text(\"Push Notifications\").text-sm.font-semibold",
       "bounding_box": {
         "x": 113,
         "y": 565,
@@ -41,7 +45,7 @@
       "line_number": 20,
       "clean_code": "className={`relative inline-flex h-7 w-12 ml-4 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2",
       "buggy_code": "className={`relative inline-flex h-7 w-12 ml-4 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 -z-10",
-      "css_selector": ".rounded-full",
+      "css_selector": "div:has(span:has-text('Push Notifications')) >> button.rounded-full",
       "bounding_box": {
         "x": 208,
         "y": 537,
@@ -57,7 +61,7 @@
       "line_number": 38,
       "clean_code": "<h3 className=\"text-base font-bold text-gray-900\">{title}</h3>",
       "buggy_code": "<h3 className=\"text-base font-bold text-gray-9000\">{title}</h3>",
-      "css_selector": ".text-gray-9000",
+      "css_selector": "h3:has-text(\"📬\").text-base.font-bold",
       "bounding_box": {
         "x": 64,
         "y": 484,
@@ -73,12 +77,12 @@
       "line_number": 39,
       "clean_code": "<p className=\"text-sm text-gray-500 mt-1\">{description}</p>",
       "buggy_code": "<p className=\"text-sm text-gray-500 mt-1 -m-12\">{description}</p>",
-      "css_selector": ".-m-12",
+      "css_selector": "p:has-text(\"Real-time notifications\").text-sm.text-gray-500",
       "bounding_box": {
-        "x": 16,
-        "y": 512,
-        "width": 417,
-        "height": 20
+        "x": 48,
+        "y": 450,
+        "width": 350,
+        "height": 120
       }
     },
     {
@@ -89,10 +93,10 @@
       "line_number": 57,
       "clean_code": "<div className=\"min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8 font-sans\">",
       "buggy_code": "<div className=\"min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8 font-sans absolute -top-20\">",
-      "css_selector": ".absolute",
+      "css_selector": ".min-h-screen.bg-gradient-to-br",
       "bounding_box": {
         "x": 0,
-        "y": -80,
+        "y": 0,
         "width": 449,
         "height": 2828
       }
@@ -105,12 +109,12 @@
       "line_number": 61,
       "clean_code": "<h1 className=\"text-4xl font-bold text-gray-900 mb-2\">Settings</h1>",
       "buggy_code": "<h1 className=\"text-4xl font-bold text-gray-600 mb-2\">Settings</h1>",
-      "css_selector": ".text-gray-600",
+      "css_selector": "h1:has-text(\"Settings\")",
       "bounding_box": {
         "x": 32,
-        "y": -32,
+        "y": 0,
         "width": 385,
-        "height": 40
+        "height": 120
       }
     },
     {
@@ -121,7 +125,7 @@
       "line_number": 66,
       "clean_code": "<div className=\"bg-white rounded-2xl shadow-xl overflow-hidden\">",
       "buggy_code": "<div className=\"bg-white rounded-2xl shadow-xl overflow-hidden pt-96\">",
-      "css_selector": ".pt-96",
+      "css_selector": ".bg-white.rounded-2xl.shadow-xl",
       "bounding_box": {
         "x": 32,
         "y": 76,
@@ -137,12 +141,12 @@
       "line_number": 190,
       "clean_code": "<div className=\"bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 sm:px-8 border-t border-gray-200 flex justify-between items-center\">",
       "buggy_code": "<div className=\"bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 sm:px-8 border-t border-gray-200 flex flex-col justify-between items-center\">",
-      "css_selector": ".flex-col",
+      "css_selector": ".border-t.border-gray-200.flex",
       "bounding_box": {
         "x": 32,
         "y": 2508,
         "width": 385,
-        "height": 81
+        "height": 200
       }
     },
     {
@@ -153,12 +157,12 @@
       "line_number": 191,
       "clean_code": "<div className=\"text-sm text-gray-600\">",
       "buggy_code": "<div className=\"text-sm text-gray-600 bg-green-9999 px-2 py-1 rounded\">",
-      "css_selector": ".bg-green-9999",
+      "css_selector": "div.border-t div.text-sm.text-gray-600",
       "bounding_box": {
         "x": 216,
         "y": 2524,
-        "width": 16,
-        "height": 8
+        "width": 120,
+        "height": 40
       }
     }
   ]
