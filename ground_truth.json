@@ -82,7 +82,7 @@
       "line_number": 39,
       "neg_code": "<p className=\"text-sm text-gray-500 mt-1\">{description}</p>",
       "pos_code": "<p className=\"text-sm text-gray-500 mt-1 -m-12\">{description}</p>",
-      "css_selector": "p:has-text(\"Real-time notifications\").text-sm.text-gray-500",
+      "css_selector": "h3 + p",
       "bounding_box": {
         "x": 48,
         "y": 450,
